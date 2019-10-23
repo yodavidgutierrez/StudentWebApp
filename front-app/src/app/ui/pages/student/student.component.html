@@ -1,0 +1,72 @@
+<div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Add new Student</h4>
+
+            <form (ngSubmit)="createStudent()" [formGroup]="forma">
+              
+              <div class="form-group">
+                <label>user name</label>
+                <input type="text" 
+                       class="form-control" 
+                       placeholder="your username"
+                       formControlName="username"
+                       name="username">
+                       <div *ngIf="forma.controls['username'].touched">
+                          User Name is required.
+                        </div>
+              </div>
+
+              <div class="form-group">
+                  <label>first name</label>
+                  <input type="text" 
+                         class="form-control" 
+                         placeholder="your fisrt name"
+                         formControlName="firstname"
+                         name="firstname">
+                </div>
+                <div class="form-group">
+                    <label>last name</label>
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="yout last name"
+                           formControlName="lastname"
+                           name="lastname">
+                  </div>
+                  <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" 
+                           class="form-control" 
+                           placeholder="Your age"
+                           formControlName="age"
+                           name="age"
+                           min="1" max="50">
+                    <div *ngIf="forma.controls['age'].hasError('max')">
+                              Maximum Age required number is 50.
+                        </div> 
+                    <div *ngIf="forma.controls['age'].hasError('min')">
+                            Minimum Age required number is 1.
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Career</label>
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="Your career"
+                           formControlName="career"
+                           name="career">
+                  </div>
+              <hr>
+              <button [disabled]="forma.invalid" type="submit" class="btn btn-success mr-2">
+                <i class="fa fa-save"></i>
+                Create
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+</div>
+          

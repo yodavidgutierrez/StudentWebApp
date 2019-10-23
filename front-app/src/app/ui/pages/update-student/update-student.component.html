@@ -1,0 +1,43 @@
+<div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+              <h4 class="card-title">Edit Student</h4>
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">User Name:</label>
+            <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username" readonly="true">
+          </div>
+      
+          <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input formControlName="firstname" placeholder="First Name" name="firstname" class="form-control" id="firstname">
+          </div>
+      
+          <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input formControlName="lastname" placeholder="Last name" name="lastname" class="form-control" id="lastname">
+          </div>
+      
+          <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" formControlName="age" placeholder="age" name="age" class="form-control" id="age" min="1" max="50">
+            <div *ngIf="editForm.controls['age'].hasError('max')">
+                Maximum Age required number is 50.
+            </div> 
+            <div *ngIf="editForm.controls['age'].hasError('min')">
+              Minimum Age required number is 1.
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label for="career">Career:</label>
+            <input type="text" formControlName="career" placeholder="career" name="career" class="form-control" id="career">
+          </div>
+      
+          <button type="submit"class="btn btn-success">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

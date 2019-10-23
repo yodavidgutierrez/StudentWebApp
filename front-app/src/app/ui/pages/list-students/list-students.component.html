@@ -1,0 +1,32 @@
+<div class="container">
+    
+    <h2 style="margin: auto"> Students Details</h2>
+    <button class="btn btn-danger"  (click)="addUser()"> Add Student</button>
+    <div class="table-reponsive">
+    <table class="table table-responsive-sm">
+      <thead>
+      <tr>
+        <th class="hidden" scope="col">Id</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">UserName</th>
+        <th scope="col">Age</th>
+        <th scope="col">Career</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let st of student">
+        <td class="hidden">{{st.id}}</td>
+        <td>{{st.firstname}}</td>
+        <td>{{st.lastname}}</td>
+        <td>{{st.username}}</td>
+        <td>{{st.age}}</td>
+        <td>{{st.career}}</td>
+        <td><button class="btn btn-success" (click)="deleteUser(st)"> Delete</button>
+          <button class="btn btn-success" (click)="editUser(st)" style="margin-left: 20px;"> Edit</button></td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
